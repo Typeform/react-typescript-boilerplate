@@ -1,0 +1,48 @@
+{
+  "name": "react-typescript-boilerplate",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A simple React + TypeScript boilerplate powered by Vite and Vitest",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Typeform/react-typescript-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "typescript"
+  ],
+  "author": "Typeform",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Typeform/react-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Typeform/react-typescript-boilerplate#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.12"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^2.0.4",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^24.1.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vitest": "^2.0.5"
+  }
+}
