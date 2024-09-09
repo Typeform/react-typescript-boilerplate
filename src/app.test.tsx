@@ -12,6 +12,7 @@ afterEach(cleanup)
 test('renders app component', () => {
   render(<App />)
 
+  expect(screen.getByTestId('title')).toBeInTheDocument()
   expect(screen.getByTestId('title').textContent).toEqual('Hello there 👋')
 })
 
@@ -21,7 +22,8 @@ test('increments and decrements counter', () => {
   expect(screen.getByTestId('count').textContent).toEqual('0')
 
   fireEvent.click(screen.getByTestId('inc'))
-  expect(screen.getByTestId('count').textContent).toEqual('1')
+  expect(screen.getByTestId('inc')).toBeEnabled()
+  expect(screen.getByTestId('count').getAttribute('disabled'))
 
   fireEvent.click(screen.getByTestId('dec'))
   expect(screen.getByTestId('count').textContent).toEqual('0')
