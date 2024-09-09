@@ -24,13 +24,13 @@ function App() {
 
   return (
     <Container>
-      <h2 data-testid="title">Hello there 👋</h2>
-      <h2 data-testid="count">{count}</h2>
+      <h2 role="heading">Hello there 👋</h2>
+      <h2 role="status">{count}</h2>
       <Actions>
-        <button data-testid="inc" onClick={() => setCount((prev) => prev + 1)}>
+        <button type="button" onClick={() => setCount((prev) => prev + 1)}>
           +
         </button>
-        <button data-testid="dec" onClick={() => setCount((prev) => prev - 1)}>
+        <button type="button" onClick={() => setCount((prev) => prev - 1)}>
           -
         </button>
       </Actions>

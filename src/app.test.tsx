@@ -1,10 +1,11 @@
-import { render, screen, cleanup, fireEvent } from '@testing-library/react'
+import { render, screen, cleanup } from '@testing-library/react'
 import { expect, test, afterEach } from 'vitest'
+import userEvent from '@testing-library/user-event'
 
 import App from './app'
 
 // Vitest API Reference: https://vitest.dev/api/
-// Testing Library Events: https://testing-library.com/docs/dom-testing-library/api-events
+// Testing Library User Events: https://testing-library.com/docs/user-event/intro/
 // Testing Library Queries: https://testing-library.com/docs/queries/about
 
 afterEach(cleanup)
@@ -12,19 +13,22 @@ afterEach(cleanup)
 test('renders app component', () => {
   render(<App />)
 
-  expect(screen.getByTestId('title')).toBeInTheDocument()
-  expect(screen.getByTestId('title').textContent).toEqual('Hello there 👋')
+  expect(screen.getByRole('heading')).toBeInTheDocument()
+  expect(screen.getByRole('heading').textContent).toEqual('Hello there 👋')
 })
 
-test('increments and decrements counter', () => {
+test('increments and decrements counter', async () => {
+  const user = userEvent.setup()
   render(<App />)
 
-  expect(screen.getByTestId('count').textContent).toEqual('0')
+  expect(screen.getByRole('status')).toBeInTheDocument()
+  expect(screen.getByRole('status').textContent).toEqual('0')
 
-  fireEvent.click(screen.getByTestId('inc'))
-  expect(screen.getByTestId('inc')).toBeEnabled()
-  expect(screen.getByTestId('count').getAttribute('disabled'))
+  expect(screen.getByText('+')).toBeEnabled()
+  await user.click(screen.getByText('+'))
+  expect(screen.getByRole('status').getAttribute('disabled'))
 
-  fireEvent.click(screen.getByTestId('dec'))
-  expect(screen.getByTestId('count').textContent).toEqual('0')
+  expect(screen.getByText('-')).toBeEnabled()
+  await user.click(screen.getByText('-'))
+  expect(screen.getByRole('status').textContent).toEqual('0')
 })
