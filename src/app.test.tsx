@@ -24,11 +24,11 @@ test('increments and decrements counter', async () => {
   expect(screen.getByRole('status')).toBeInTheDocument()
   expect(screen.getByRole('status').textContent).toEqual('0')
 
-  expect(screen.getByText('+')).toBeEnabled()
-  await user.click(screen.getByText('+'))
+  expect(screen.getByRole('button', { name: '+' })).toBeEnabled()
+  await user.click(screen.getByRole('button', { name: '+' }))
   expect(screen.getByRole('status').getAttribute('disabled'))
 
-  expect(screen.getByText('-')).toBeEnabled()
-  await user.click(screen.getByText('-'))
+  expect(screen.getByRole('button', { name: '-' })).toBeEnabled()
+  await user.click(screen.getByRole('button', { name: '-' }))
   expect(screen.getByRole('status').textContent).toEqual('0')
 })
